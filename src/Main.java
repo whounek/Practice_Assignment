@@ -6,8 +6,8 @@ public class Main {
     private static Map<String, String> latinDict = new HashMap<>();
     private static Map<String, String> digitDict = new HashMap<>();
 
-    private static String latinPath "Latin_dictionary.txt";
-    private static String digitPath "Digit_dictionary.txt";
+    private static String latinPath = "Latin_dictionary.txt";
+    private static String digitPath = "Digit_dictionary.txt";
 
     private static Map<String, String> currentDict;
     private static String currentPath;
@@ -28,13 +28,13 @@ public class Main {
 
             String choice = scanner.nextLine().trim();
 
-            if (choice.equals("0")) {
+            if (choice.equals("3")) {
                 break;
             } else if (choice.equals("1")) {
                 currentDict = latinDict;
                 currentPath = latinPath;
                 currentDescription = "4 латинские буквы";
-                currentRegex = "[a-zA-Z{4}]";
+                currentRegex = "[a-zA-Z]{4}";
                 workWithDictionary();
             } else if (choice.equals("2")) {
                 currentDict = digitDict;
@@ -58,7 +58,7 @@ public class Main {
             System.out.println("4. Удалить запись");
             System.out.println("5. СМЕНИТЬ СЛОВАРЬ");
 
-            String.choice scanner.nextLine().trim();
+            String choice = scanner.nextLine().trim();
 
             switch (choice) {
                 case "1": printDictionary(); break;
@@ -89,7 +89,7 @@ public class Main {
     }
 
     public static void saveDictionary() {
-        try (PrintWrinter writer = new PrintWriter(new FileWriter(currentPath))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(currentPath))) {
             for (Map.Entry<String, String> entry : currentDict.entrySet()) {
                 writer.println(entry.getKey() + " - " + entry.getValue());
             }
@@ -148,7 +148,7 @@ public class Main {
         saveDictionary();
     }
 
-    private static void removeEntry() {
+    private static void delEntry() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ключ для удаления");
         String key = scanner.nextLine().trim();
