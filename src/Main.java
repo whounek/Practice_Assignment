@@ -6,8 +6,8 @@ public class Main {
     private static Map<String, String> latinDict = new HashMap<>();
     private static Map<String, String> digitDict = new HashMap<>();
 
-    private static String latinPath = "Latin_dictionary.txt";
-    private static String digitPath = "Digit_dictionary.txt";
+    private static String latinPath = "dictionary_latin.txt";
+    private static String digitPath = "dictionary_digit.txt";
 
     private static Map<String, String> currentDict;
     private static String currentPath;
@@ -140,7 +140,7 @@ public class Main {
             return;
         }
 
-        System.out.println("Введите значение (перевод): ");
+        System.out.println("Введите значение: ");
         String value = scanner.nextLine().trim();
 
         currentDict.put (key, value);
